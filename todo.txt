@@ -1,8 +1,13 @@
 
+- TODO:NOW
+	* Procurar uma hospedagem free, como o heroku se suporta sinatra free
+	* configurar o app para hospedagem
+	* usar o rollbar para monitoramento de atividades da aplicação
 
 
 
 
 
 - PARA DEPOIS!
+		* ver controle de ips para evitar que um mesmo usuario faça infinitas requests 
 		* Fazer uma pagina de boas vindas da api, tipo uma documentação
