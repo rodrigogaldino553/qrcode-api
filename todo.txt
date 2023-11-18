@@ -1,0 +1,8 @@
+
+
+
+
+
+
+- PARA DEPOIS!
+		* Fazer uma pagina de boas vindas da api, tipo uma documentação
