@@ -7,7 +7,8 @@ get '/' do
   content_type :json
 
   data = {
-    message: 'Hello world!'
+    message: 'Hello world!',
+    time: Time.now
   }
 
   JSON.generate(data)
