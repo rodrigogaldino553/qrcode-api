@@ -8,5 +8,8 @@ gem 'rake'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'dotenv'
-gem 'rerun'
+
+group :development do
+  gem 'rerun'
+end
 gem 'rqrcode'
