@@ -6,15 +6,16 @@ require 'base64'
 
 
 get '/' do 
-  content_type :json
+  erb :index
+  #content_type :json
 
-  data = {
-    message: 'Hello world!',
-    time: Time.now,
-    author: '@me'
-  }
+  #data = {
+  #  message: 'Hello world!',
+  #  time: Time.now,
+  #  author: '@me'
+  #}
 
-  JSON.generate(data)
+  #JSON.generate(data)
 end
 
 get '/hello' do 
