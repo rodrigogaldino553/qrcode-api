@@ -1,4 +1,9 @@
 
+
+
+references: https://github.com/alisong779/recipe_keeper_app
+
+
 - TODO:NOW
 	* Procurar uma hospedagem free, como o heroku se suporta sinatra free
 	* configurar o app para hospedagem
