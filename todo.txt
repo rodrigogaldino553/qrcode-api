@@ -3,6 +3,8 @@
 	* Procurar uma hospedagem free, como o heroku se suporta sinatra free
 	* configurar o app para hospedagem
 	* usar o rollbar para monitoramento de atividades da aplicação
+	* organizar a estrutura de pastas e toda arquitetura do projeto
+	* usar método post para gerar o qrcode
 
 
 

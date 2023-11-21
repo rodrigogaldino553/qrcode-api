@@ -10,7 +10,8 @@ get '/' do
 
   data = {
     message: 'Hello world!',
-    time: Time.now
+    time: Time.now,
+    author: '@me'
   }
 
   JSON.generate(data)
