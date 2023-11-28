@@ -9,6 +9,13 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'dotenv'
 
+gem 'puma'
+gem 'http'
+gem 'thin'
+gem 'reel'
+gem 'falcon'
+gem 'webrick'
+
 group :development do
   gem 'rerun'
 end
