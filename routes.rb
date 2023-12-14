@@ -4,39 +4,10 @@ require 'json'
 require 'rqrcode'
 require 'base64'
 
+require './controllers/qrcodes_controller'
 
-get '/' do 
-  erb :index
-  #content_type :json
 
-  #data = {
-  #  message: 'Hello world!',
-  #  time: Time.now,
-  #  author: '@me'
-  #}
+use QrcodesController
 
-  #JSON.generate(data)
-end
 
-get '/hello' do 
-  'Yeah! it works'
-end
-
-get '/generate/:content' do
-  #content_type :json
-
-# build qrcode img
-  #QrcodeController.new(params[:content])
-  qrcodes_controller = QrcodeController.new
-  qrcodes_controller.generate(params[:content])
-  # @content = params[:content]
-  
-
-# render response
-  #JSON.generate(data)
-end
-
-# get '/documentation' do
-#   render './public/views/home.html'
-# end
 
