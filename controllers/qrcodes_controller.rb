@@ -1,3 +1,6 @@
+require './services/qrcode_service'
+
+
 class QrcodesController < Sinatra::Base
   get '/' do 
     content_type :json
@@ -13,41 +16,41 @@ class QrcodesController < Sinatra::Base
   get '/hello' do 
     'Yeah! it works'
   end
-  
+
   get '/generate/:content' do
-    #content_type :json
+    encoded_qrcode = generate_qrcode(params[:content])
+    "<div width='100%' height='100%' bakground='gray'><img src='data:image/jpeg;base64,#{encoded_qrcode}'></div>"
+  end
   
+  post '/generate' do
+    content_type :json
   # build qrcode img
-    @content = params[:content]
-    rqrcode = RQRCode::QRCode.new(@content)
-  
-      qrcode = rqrcode.as_png(
-        bit_depth: 1,
-        border_modules: 1,
-        color_mode: ChunkyPNG::COLOR_GRAYSCALE,
-        color: "black",
-        file: nil,
-        fill: "white",
-        module_px_size: 6,
-        resize_exactly_to: false,
-        resize_gte_to: false,
-        size: 300
-      )
-  
-      encoded_qrcode = Base64.strict_encode64(qrcode.to_s)
-  
+    content = params[:content]
+    start = Time.now
+
+    encoded_qrcode = generate_qrcode(content)
+
+    finish = Time.now
+    time = finish - start
   # build response json
-    # data = {
-    #   message: 'VERY COOL!',
-    #   your_content: params[:content],
-      "<div width='100%' height='100%' bakground='gray'><img src='data:image/jpeg;base64,#{encoded_qrcode}'></div>"
-    #}
+    data = {
+      content: content,
+      qrcode: "<div width='100%' height='100%' bakground='gray'><img src='data:image/jpeg;base64,#{encoded_qrcode}'></div>",
+      generated_at: Time.now,
+      time: "generated in #{time} seconds"
+    }
   
   # render response
-    #JSON.generate(data)
+    JSON.generate(data)
   end
   
   # get '/documentation' do
   #   render './public/views/home.html'
   # end
+
+  private
+
+  def generate_qrcode(content)
+    QrcodeService.build_qrcode(content)
+  end
 end
